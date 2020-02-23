@@ -1,0 +1,65 @@
+* {  
+  font-family: 'Verdana';
+ }
+body {
+  margin: 0;
+  font-family: 'Verdana';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.SearchWrap input{ border:none; border-bottom: 1px solid #fff; margin-right:5px; background: transparent;
+color: #fff;
+}
+.SearchWrap input:focus{
+  outline: none;
+}
+.fa-search:before{	
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+.fa-stack {
+  height: 1em;
+}
+.fa-stack[data-count]:after{
+	position:absolute;
+  right:0%;
+  top:0%;
+  content: attr(data-count);
+  font-size:25%;
+  padding:.6em;  
+  right:10%;
+  border-radius:99px;
+	border: 0px;
+  line-height:1em;  
+  color:white;
+  text-align:center;  
+  font-weight:bold;
+  background: red;
+  border-style:solid;
+  }
+::-webkit-input-placeholder { /* Edge */
+  color: white;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+@font-face {
+  font-family: 'Verdana';
+  src: url('../src/assets/fonts/Verdana.woff2') format('woff2'),
+      url('../src/assets/fonts/Verdana.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+

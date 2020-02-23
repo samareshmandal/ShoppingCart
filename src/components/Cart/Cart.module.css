@@ -1,0 +1,11 @@
+.CartSummary{
+    border: 1px;
+    border-style: solid;
+    border-color: #666;
+
+}
+
+.CartSummary div{
+    padding: 15px;
+    
+}

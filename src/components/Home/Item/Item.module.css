@@ -1,0 +1,40 @@
+.CartItem{
+    width: 21%;
+    display: block;
+    margin:1%;
+}
+
+.CartItem img{
+    height: 200px;
+    width: 100%;
+}
+.CartItem div{
+    margin: 0px;
+    padding-bottom: 10px;
+}
+.CartItem div button{    
+    color:black !important;    
+    text-decoration: none;
+    font-weight: bold;
+    background: rgb(247,205,34);
+    padding: 10px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;        
+}
+
+/* .CartItem price{
+    color:#444;
+    font-weight: bold;
+}
+
+.CartItem strike{
+    
+    text-decoration: line-through;
+}
+
+.CartItem discount{
+    
+    color: green;
+} */
