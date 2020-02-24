@@ -16,7 +16,7 @@ const headerComp = (props) => (
 			</div>
 			<div style={{float:"right"}}>
 				<nav className={classes.DesktopOnly}>
-					<NavigationItems />
+					<NavigationItems onSearch ={props.onSearch}/>
 				</nav>
 			</div>			
 			

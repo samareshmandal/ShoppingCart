@@ -10,8 +10,8 @@ class Layout extends Component {
 		this.props.history.push('/');
 	};
 
-	applySearch = (search) => {        
-        this.props.onSearch(search);        
+	applySearch = () => {
+		this.props.onSearch(document.getElementById("txtSearch").value);        
 	};
 	
 	render() {		
@@ -36,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return{        
-        onSearch: (sort)=>{dispatch(actions.updateSearch(sort))}
+        onSearch: (search)=>{dispatch(actions.updateSearch(search))}
     };
 }
 

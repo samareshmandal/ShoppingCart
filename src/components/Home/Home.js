@@ -42,8 +42,18 @@ class Home extends Component{
         let items = <Spinner/>;
         if(!this.props.loading)
         {
-            let filterItems = this.props.items.filter(item => item.price < this.props.filter);
-            filterItems = this.props.items.filter(item => item.price < this.props.filter);            
+            let filterItems = this.props.items;
+            //apply search
+            if(this.props.search)
+            {
+                const searchname = this.props.search.toLowerCase();
+                filterItems = filterItems.filter(function(item) {
+                    return item.name.toLowerCase().indexOf(searchname) != -1; // returns true or false
+                });
+            }
+              //apply filetr
+            filterItems = filterItems.filter(item => item.price < this.props.filter);
+            //apply sort           
             switch(this.props.sort+'')
             {
                 case '1':                    
@@ -99,7 +109,8 @@ const mapStateToProps = state => {
         loading: state.prod.loading,
         cartItems: state.cart.cartItems,
         filter: state.prod.filter,
-        sort: state.prod.sort
+        sort: state.prod.sort,
+        search: state.prod.search
     };
 }
 

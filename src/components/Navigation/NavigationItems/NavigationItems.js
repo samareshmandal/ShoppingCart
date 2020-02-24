@@ -12,8 +12,8 @@ const navigationItems = (props) => (
 		<NavigationItem link="/cart" ><i class="fa fa-shopping-cart" style={{'font-size':'30px'}}></i></NavigationItem> */}
 		<li >
 			<div className='SearchWrap d-flex'>
-				<input  type ="text" placeholder="Search"></input>
-				<i className="fa fa-search" style={{'fontSize':'30px'}}></i>
+				<input  type ="text" id="txtSearch" placeholder="Search"></input>
+				<i className="fa fa-search" style={{'fontSize':'30px'}} onClick={props.onSearch}></i>
 				{/* <NavLink to="/search">
 					
 				</NavLink> */}
