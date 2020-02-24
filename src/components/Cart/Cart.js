@@ -23,22 +23,27 @@ class Cart extends Component{
     }
 
     render(){        
+        let items =<div style={{fontWeight:"bold", width:'90%', textAlign:"center", padding:'20%'}}>Your Cart is empty! Please add item...</div>;
+        if(this.props.cartItems.length>0)
+        {
+            items= this.props.cartItems.map(item => 
+                <CartItem key={item.id}
+                id = {item.id}
+                name= {item.name}
+                originalPrice = {item.price}
+                discountedPrice= {(item.price - item.discountAmt)}
+                img_url = {item.img_url}
+                discount= {item.discount}
+                quantity = {item.quantity}
+                addClick = {()=> this.handleAddQuantityClick(item.id)}
+                subClick = {()=> this.handleSubtractQuantityClick(item.id)}
+                removeClick = {()=> this.handleRemoveClick(item.id)}
+                />);
+        }
         return (
             <div className="row">
-                <div className='col-8'>
-                    {this.props.cartItems.map(item => 
-                    <CartItem key={item.id}
-                    id = {item.id}
-                    name= {item.name}
-                    originalPrice = {item.price}
-                    discountedPrice= {(item.price - item.discountAmt)}
-                    img_url = {item.img_url}
-                    discount= {item.discount}
-                    quantity = {item.quantity}
-                    addClick = {()=> this.handleAddQuantityClick(item.id)}
-                    subClick = {()=> this.handleSubtractQuantityClick(item.id)}
-                    removeClick = {()=> this.handleRemoveClick(item.id)}
-                    />)}   
+                <div className='col-8'>                
+                    {items}
                 </div>
                 <div className='col-4' >
                 <div className ={classes.CartSummary}>
