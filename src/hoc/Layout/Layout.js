@@ -6,13 +6,18 @@ import * as actions from '../../store/actions/index';
 
 class Layout extends Component {
 	
+	gotoHome = () => {		
+		this.props.history.push('/');
+	};
+
 	applySearch = (search) => {        
         this.props.onSearch(search);        
-    }
+	};
+	
 	render() {		
 		return (
 			<React.Fragment>
-				<Header onSearch ={this.applySearch}></Header>
+				<Header onSearch ={this.applySearch} onHome ={this.gotoHome}></Header>
 				<main className={classes.Content}>
 					<div className='container-fluid'>
 						{this.props.children}

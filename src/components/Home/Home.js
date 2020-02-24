@@ -27,6 +27,7 @@ class Home extends Component{
     }
     handleFilterChange= (e) =>{
         this.setState({ filter: e.target.value });
+        document.getElementById("filterDivValue").innerText= e.target.value;
       }
 
     applyFilterHandler = () => {        
@@ -71,7 +72,11 @@ class Home extends Component{
             <React.Fragment>                
                 <div className='row'>
                     <div className='col-12 col-md-12 col-lg-3'>
-                        <Filter filterChange = {this.handleFilterChange} clicked = {this.applyFilterHandler} />
+                        <Filter 
+                            filterChange = {this.handleFilterChange} 
+                            clicked = {this.applyFilterHandler} 
+                            filtervalue = {this.props.filter}
+                        />
                     </div>
                     <div className='col-12 col-md-12 col-lg-9'>
                         <div className="row">

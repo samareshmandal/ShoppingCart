@@ -19,8 +19,11 @@ class Filter extends Component{
                     }}>
                     Filters 
                 </span>
+                <br />
                 <label for="vol">Price (between 100 and 1000)</label>
-                <input type="range" id="vol" name="vol" min="100" max="1000" style={{width:'100%'}} onChange= {this.props.filterChange}/>
+                <input type="range" id="vol" name="vol" min="100" max="1000" style={{width:'90%'}} onChange= {this.props.filterChange}/>
+                
+                <div style={{width:'80%',textAlign:"center"}} id ="filterDivValue">100</div>
                 <button className={classes.applyBtn} onClick= {this.props.clicked}>
                         Apply
                 </button>
