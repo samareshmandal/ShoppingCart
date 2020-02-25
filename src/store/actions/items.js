@@ -35,7 +35,8 @@ export const updateSort =(sort)=>{
     }
 }
 
-export const updateFilter =(filter)=>{    
+export const updateFilter =(filter)=>{   
+    console.log(filter); 
     return{
         type:actionTypes.UPDATE_FILTER,
         filter:filter

@@ -3,7 +3,8 @@ import {updateObject} from '../utility';
 const initialState = {
     items: [],
     search:null,
-    filter:10000,
+    filterMin:0,
+    filterMax:1000,
     sort: 0,//0- highLow.1- LowHigh.2-Discoount
     loading :false
 }
@@ -29,9 +30,17 @@ const updateSort = (state, action) => {
 }
 
 const updateFilter = (state, action) => {
-    return updateObject(state, {
-        filter: action.filter
+    console.log("Action Received below:")
+    console.log(action);
+    console.log(action.filter.filterMin);
+    console.log(action.filter.filterMax);
+
+    let updatedState = updateObject(state, {
+        filterMin: action.filter.filterMin,
+        filterMax:action.filter.filterMax
     });
+    console.log(updatedState);
+    return updatedState
 }
 
 const reducer =(state = initialState, action) =>{

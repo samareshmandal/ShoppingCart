@@ -10,8 +10,7 @@ import * as actions from '../../store/actions/index';
 
 class Home extends Component{
     state = {
-        search:null,
-        filter:10000,
+        search:null,        
         sort: 0 //0- highLow.1- LowHigh.2-Discoount        
     }
 
@@ -30,8 +29,10 @@ class Home extends Component{
         document.getElementById("filterDivValue").innerText= e.target.value;
       }
 
-    applyFilterHandler = () => {        
-        this.props.onFilter(this.state.filter);        
+    applyFilterHandler = (filterState) => {      
+        console.log("Filter applying");
+        console.log(filterState);  
+        this.props.onFilter(filterState);        
     }
 
     applySortHandler = (sort) => {        
@@ -52,7 +53,9 @@ class Home extends Component{
                 });
             }
               //apply filetr
-            filterItems = filterItems.filter(item => item.price < this.props.filter);
+              console.log(this.props.filterMin)
+              console.log(this.props.filterMax)
+            filterItems = filterItems.filter(item => item.price <= this.props.filterMax && item.price >= this.props.filterMin);
             //apply sort           
             switch(this.props.sort+'')
             {
@@ -108,7 +111,8 @@ const mapStateToProps = state => {
         items:state.prod.items,
         loading: state.prod.loading,
         cartItems: state.cart.cartItems,
-        filter: state.prod.filter,
+        filterMin: state.prod.filterMin,
+        filterMax: state.prod.filterMax,
         sort: state.prod.sort,
         search: state.prod.search
     };
@@ -118,7 +122,7 @@ const mapDispatchToProps = dispatch => {
     return{
         onFetchItems: () => dispatch(actions.fetchItems()),
         onAddToCart: (item)=>{dispatch(actions.addToCart(item))},
-        onFilter: (filter)=>{dispatch(actions.updateFilter(filter))},
+        onFilter: (filterState)=>{dispatch(actions.updateFilter(filterState))},
         onSort: (sort)=>{dispatch(actions.updateSort(sort))}
     };
 }
