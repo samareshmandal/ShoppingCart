@@ -25,7 +25,7 @@ class Filter extends Component{
             maxVal = parseInt(maxBtn.value)
             if(maxVal - minVal>20){
                 this.setState({filterMin:minVal});                
-                range_min.innerText=minVal
+                range_min.innerText="रु" +minVal
             }                        
         }
         else
@@ -34,7 +34,7 @@ class Filter extends Component{
             maxVal = event.target.value
             if(maxVal - minVal> 20){
                 this.setState({filterMax:maxVal});
-                range_max.innerText=maxVal;
+                range_max.innerText="रु" +maxVal;
             }            
         }
     }
@@ -58,8 +58,8 @@ class Filter extends Component{
                             <div className="rangeslider">
                                 <input className="min" name="range_1" type="range" min="1" max="1000" value={this.state.filterMin} onChange ={(event)=> this.rangeInputChangeEventHandler(event,'min')} />
                                 <input className="max" name="range_2" type="range" min="1" max="1000" value={this.state.filterMax} onChange ={(event)=> this.rangeInputChangeEventHandler(event,'max')} />
-                                <span className="range_min light left" name ="range_min">{this.state.filterMin}</span>
-                                <span className="range_max light right" name ="range_max">{this.state.filterMax}</span>
+                                <span className="range_min light left" name ="range_min">रु{this.state.filterMin}</span>
+                                <span className="range_max light right" name ="range_max">रु{this.state.filterMax}</span>
                                 
                             </div>
                         </div>
